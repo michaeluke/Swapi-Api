@@ -32,7 +32,7 @@ async function getData(url:string) {
 
 //getvalue fn. gets the user input from the web page then call on the checkvalue fn. 
 async function getvalue(){
-  actorname= (<HTMLInputElement>document.getElementById('actorname')).value; //3'yart mn value ---> node value
+  actorname= (<HTMLInputElement>document.getElementById('actorname')).value; 
   
   res = Promise.resolve(getData(APP.urls.people));
   
