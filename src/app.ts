@@ -11,7 +11,7 @@ const APP = {
 
 let res:any; //To store Url for fetch function
 let actorname:string //To Store User Input e.g Searching for an actor.
-let filmurl:string; //A variable that contains the selected film's URL.
+let filmurl:string; //To store the URL of the selected Film
 let found = false; //Variable used in the checkvalue fn. which finds the Actor we're searching for in the list of Actors in the API.
 
 //export the getData fn. for testing.
