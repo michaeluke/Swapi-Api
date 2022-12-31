@@ -10,7 +10,7 @@ const APP = {
  };
 
 let res:any; //To store Url for fetch function
-let actorname:string //To Store User Input e.g Searching for a .
+let actorname:string //To Store User Input e.g Searching for an actor.
 let filmurl:string;
 let found = false;
 
@@ -74,7 +74,7 @@ if (found == false){ //if actor was not found on that page. get the next page an
 }
 
 else {
-  //if actorn was not found in all pages.
+  //if actor was not found in all pages. display msg (Actor was not found)
   const box = document.querySelector('.overlay') as HTMLDivElement ; 
   box.classList.remove('active');
 
@@ -125,6 +125,7 @@ doc.addEventListener( 'click', function handler( event )   {
     
     }
   
+    //I decided to name each film's HTML element on the webpage with the film's url.
   
   else if ((event.target as Element).id.includes('api/films') == true) {//if any of the films titles is clicked on the web page. 
   
@@ -133,7 +134,7 @@ doc.addEventListener( 'click', function handler( event )   {
     const box = document.querySelector('.overlay') as HTMLDivElement ; 
     box.classList.add('active');// add loader
 
-    filmurl = (event.target as Element).id; //I already assigned the id of each film tab to the film's url on the showfilm fn. (scroll to check it out)
+    filmurl = (event.target as Element).id; //As Mentioned before; I already assigned the id of each film tab to the film's url on the showfilm fn. (Line 181)
     Movieurl(); //call on Movieurl fn.
      
   }
@@ -152,7 +153,7 @@ doc.addEventListener( 'click', function handler( event )   {
 //display films on web page & Also assign the id of each film tab to the film's url.
  function showfilms(){
   
-  //make sure all divs are cleared...
+  //make sure all divs are cleared... in order not to duplicate data on the webpage
   let domelement1 = (<HTMLDivElement>document.getElementById('divfilminfo'));
   domelement1.innerText ="";
 
@@ -545,7 +546,7 @@ async function displayfilminfo(){
    //fn to display all actors in the api
     function displaypeople (){
 
-      //make sure all divs are cleared first.
+      //make sure all divs are cleared first....
       
   let domelement1 = (<HTMLDivElement>document.getElementById('divfilminfo'));
   domelement1.innerText ="";
@@ -574,7 +575,7 @@ async function displayfilminfo(){
       }
       
 
-      if (data['next'] != null)// loops through all pages to display all actors in the api
+      if (data['next'] != null)// loops through all pages in the API to display all the actors
       {
         res = getData(data['next'])
         displaypeople();//recursive call on the fn while fetching the next page in the api
